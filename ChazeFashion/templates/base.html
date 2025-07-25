@@ -7,8 +7,22 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Font + Typing CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  #typing-text {
+    font-weight: bold;
+    animation: blink 0.75s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+</style>
 </head>
-<body class="min-h-screen bg-base-100">
+<body class="min-h-screen bg-base-100 ">
     <!-- Navigation Bar -->
     <div class="navbar bg-base-100 shadow-lg">
         <div class="navbar-start">
@@ -27,8 +41,8 @@
                     {% endif %}
                 </ul>
             </div>
-            <a href="{% url 'home' %}" class="btn btn-ghost text-xl">
-                <i class="fas fa-tshirt text-primary"></i>
+            <a href="{% url 'home' %}" class=" btn btn-ghost text-xl">
+                <i class="fas fa-tshirt text-blue-400 "></i>
                 ChazeFashion
             </a>
         </div>
@@ -98,23 +112,23 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <footer class="footer footer-center p-10 bg-gray-800 text-white ">
         <nav class="grid grid-flow-col gap-4">
-            <a href="{% url 'home' %}" class="link link-hover">Home</a>
-            <a href="{% url 'product_list' %}" class="link link-hover">Products</a>
+            <a href="{% url 'home' %}" class="link no-underline hover:no-underline text-white hover:text-accent transition">Home</a>
+            <a href="{% url 'product_list' %}" class="link no-underline hover:no-underline text-white hover:text-accent transitionr">Products</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'wishlist' %}" class="link link-hover">Wishlist</a>
-                <a href="{% url 'profile' %}" class="link link-hover">Profile</a>
+                <a href="{% url 'wishlist' %}" class="link no-underline hover:no-underline text-white hover:text-accent transition">Wishlist</a>
+                <a href="{% url 'profile' %}" class="link no-underline hover:no-underline text-white hover:text-accent transition">Profile</a>
             {% else %}
-                <a href="{% url 'login' %}" class="link link-hover">Login</a>
-                <a href="{% url 'signup' %}" class="link link-hover">Sign Up</a>
+                <a href="{% url 'login' %}" class="link no-underline hover:no-underline text-white hover:text-accent transition">Login</a>
+                <a href="{% url 'signup' %}" class="link no-underline hover:no-underline text-white hover:text-accent transition">Sign Up</a>
             {% endif %}
         </nav> 
         <nav>
             <div class="grid grid-flow-col gap-4">
-                <a href="#"><i class="fab fa-twitter text-xl"></i></a>
-                <a href="#"><i class="fab fa-instagram text-xl"></i></a>
-                <a href="#"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#"><i class="hover:text-blue-400 transition duration-200 fab fa-twitter text-xl "></i></a>
+                <a href="#"><i class="hover:text-pink-400 transition duration-200 fab fa-instagram text-xl"></i></a>
+                <a href="#"><i class="hover:text-blue-600 transition duration-200 fab fa-facebook text-xl"></i></a>
             </div>
         </nav> 
         <aside>
@@ -122,4 +136,27 @@
         </aside>
     </footer>
 </body>
+<script>
+  const text = "ChazeFashion";
+  const target = document.getElementById("typing-text");
+  let i = 0;
+  let isDeleting = false;
+
+  function typeLoop() {
+    if (!isDeleting && i <= text.length) {
+      target.textContent = text.substring(0, i);
+      i++;
+      setTimeout(typeLoop, 150);
+    } else if (isDeleting && i >= 0) {
+      target.textContent = text.substring(0, i);
+      i--;
+      setTimeout(typeLoop, 100);
+    } else {
+      isDeleting = !isDeleting;
+      setTimeout(typeLoop, 1);
+    }
+  }
+
+  typeLoop();
+</script>
 </html> 

@@ -4,108 +4,142 @@
 
 {% block content %}
 <!-- Hero Section -->
-<div class="hero min-h-[60vh] bg-gradient-to-r from-primary to-secondary">
-    <div class="hero-content text-center text-neutral-content">
-        <div class="max-w-md">
-            <h1 class="mb-5 text-5xl font-bold">Welcome to ChazeFashion</h1>
-            <p class="mb-5">Discover the latest trends in fashion. From casual wear to formal attire, we have everything you need to express your unique style.</p>
-            <a href="{% url 'product_list' %}" class="btn btn-primary">Shop Now</a>
-        </div>
+<div class="hero min-h-[75vh] bg-gradient-to-br from-[#ec4899] via-[#d946ef] to-[#8b5cf6] text-white shadow-xl">
+  <div class="hero-content text-center flex flex-col items-center justify-center animate-fadeIn">
+    <div class="max-w-2xl px-6">
+      <!-- Main Heading -->
+      <h1 class="text-5xl sm:text-6xl font-extrabold mb-4 drop-shadow-md">
+        Welcome to
+      </h1>
+
+      <!-- Typing Effect Subheading -->
+      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 tracking-wide">
+        <span id="typing-text" 
+              class="bg-gradient-to-r from-[#ec4899] via-[#d946ef] to-[#8b5cf6] bg-clip-text text-white
+                     border-r-4 border-white inline-block whitespace-nowrap h-10 animate-pulse">
+        </span>
+      </h2>
+      <!-- Description -->
+      <p class="mb-8 text-lg sm:text-xl text-gray-200 leading-relaxed">
+        Explore the latest trends and timeless styles. Whether it's streetwear, casuals, or couture — find your look here.
+      </p>
+
+      <!-- CTA Button -->
+        <a href="{% url 'product_list' %}" 
+        class=" btn bg-white text-indigo-700 font-semibold border-2 border-white 
+                hover:bg-gradient-to-r hover:from-[#ec4899] hover:via-[#d946ef] hover:to-[#8b5cf6] 
+                hover:text-white hover:border-white 
+                transition-all duration-300 transform hover:scale-110 ">
+        Shop Now
+      </a>
     </div>
+  </div>
 </div>
 
+
+
+
 <!-- Categories Section -->
-<div class="py-16 bg-base-200">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Shop by Category</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                <figure class="px-10 pt-10">
-                    <div class="avatar placeholder">
-                        <div class="bg-primary text-primary-content rounded-full w-24">
-                            <span class="text-3xl">👨</span>
-                        </div>
-                    </div>
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Men</h2>
-                    <p class="text-sm">Stylish clothing for men</p>
-                    <div class="card-actions">
-                        <a href="{% url 'product_list' %}?category=Men" class="btn btn-primary btn-sm">Shop Men</a>
-                    </div>
-                </div>
+
+<div class="py-16 bg-base-200 rounded-xl mt-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">Shop by Category</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+      <!-- Men -->
+      <div class="card bg-blue-500 shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out rounded-xl">
+        <figure class="px-10 pt-10">
+          <div class="avatar placeholder">
+            <div class="bg-base-100 text-primary-content rounded-full w-24">
+              <span class="text-6xl">👨</span>
             </div>
-            
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                <figure class="px-10 pt-10">
-                    <div class="avatar placeholder">
-                        <div class="bg-secondary text-secondary-content rounded-full w-24">
-                            <span class="text-3xl">👩</span>
-                        </div>
-                    </div>
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Women</h2>
-                    <p class="text-sm">Elegant fashion for women</p>
-                    <div class="card-actions">
-                        <a href="{% url 'product_list' %}?category=Women" class="btn btn-secondary btn-sm">Shop Women</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                <figure class="px-10 pt-10">
-                    <div class="avatar placeholder">
-                        <div class="bg-accent text-accent-content rounded-full w-24">
-                            <span class="text-3xl">👦</span>
-                        </div>
-                    </div>
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Boys</h2>
-                    <p class="text-sm">Cool clothes for boys</p>
-                    <div class="card-actions">
-                        <a href="{% url 'product_list' %}?category=Boys" class="btn btn-accent btn-sm">Shop Boys</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                <figure class="px-10 pt-10">
-                    <div class="avatar placeholder">
-                        <div class="bg-info text-info-content rounded-full w-24">
-                            <span class="text-3xl">👧</span>
-                        </div>
-                    </div>
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Girls</h2>
-                    <p class="text-sm">Pretty dresses for girls</p>
-                    <div class="card-actions">
-                        <a href="{% url 'product_list' %}?category=Girls" class="btn btn-info btn-sm">Shop Girls</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                <figure class="px-10 pt-10">
-                    <div class="avatar placeholder">
-                        <div class="bg-success text-success-content rounded-full w-24">
-                            <span class="text-3xl">👶</span>
-                        </div>
-                    </div>
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Toddler</h2>
-                    <p class="text-sm">Comfortable baby clothes</p>
-                    <div class="card-actions">
-                        <a href="{% url 'product_list' %}?category=Toddler" class="btn btn-success btn-sm">Shop Toddler</a>
-                    </div>
-                </div>
-            </div>
+          </div>
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title text-white">Men</h2>
+          <p class="text-white">Stylish clothing for men</p>
+          <div class="card-actions">
+            <a href="{% url 'product_list' %}?category=Men" class="btn btn-white btn-sm">Shop Men</a>
+          </div>
         </div>
+      </div>
+
+      <!-- Women -->
+      <div class="card bg-pink-500 shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out rounded-xl">
+        <figure class="px-10 pt-10">
+          <div class="avatar placeholder">
+            <div class="bg-base-100 text-secondary-content rounded-full w-24">
+              <span class="text-6xl">👩</span>
+            </div>
+          </div>
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title text-white">Women</h2>
+          <p class="text-white">Elegant fashion for women</p>
+          <div class="card-actions">
+            <a href="{% url 'product_list' %}?category=Women" class="btn btn-white btn-sm">Shop Women</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boys -->
+      <div class="card bg-indigo-500 shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out rounded-xl">
+        <figure class="px-10 pt-10">
+          <div class="avatar placeholder">
+            <div class="bg-base-100 text-accent-content rounded-full w-24">
+              <span class="text-6xl">👦</span>
+            </div>
+          </div>
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title text-white">Boys</h2>
+          <p class="text-white">Cool clothes for boys</p>
+          <div class="card-actions">
+            <a href="{% url 'product_list' %}?category=Boys" class="btn btn-white btn-sm">Shop Boys</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Girls -->
+      <div class="card bg-purple-500 shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out rounded-xl">
+        <figure class="px-10 pt-10">
+          <div class="avatar placeholder">
+            <div class="bg-base-100 text-info-content rounded-full w-24">
+              <span class="text-6xl">👧</span>
+            </div>
+          </div>
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title text-white">Girls</h2>
+          <p class="text-sm text-white ">Pretty dresses for girls</p>
+          <div class="card-actions">
+            <a href="{% url 'product_list' %}?category=Girls" class="btn btn-white btn-sm">Shop Girls</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toddler -->
+      <div class="card bg-fuchsia-500 shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out rounded-xl">
+        <figure class="px-10 pt-10">
+          <div class="avatar placeholder">
+            <div class="bg-base-100 text-success-content rounded-full w-24">
+              <span class="text-6xl">👶</span>
+            </div>
+          </div>
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title text-white">Toddler</h2>
+          <p class="text-white">Comfortable baby clothes</p>
+          <div class="card-actions">
+            <a href="{% url 'product_list' %}?category=Toddler" class="btn btn-white btn-sm">Shop Toddler</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>
+
 
 <!-- Featured Products Section -->
 <div class="py-16">
@@ -166,22 +200,22 @@
 </div>
 
 <!-- Features Section -->
-<div class="py-16 bg-base-200">
+<div class="py-16 bg-base-200 rounded-xl">
     <div class="container mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12">Why Choose ChazeFashion?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center">
-                <div class="text-4xl mb-4">🚚</div>
+            <div class="text-center bg-white ml-4 border-2 rounded-xl">
+                <div class="text-4xl mb-4 mt-4">🚚</div>
                 <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
-                <p class="text-base-content opacity-70">Get your fashion items delivered to your doorstep quickly and safely.</p>
+                <p class="text-base-content opacity-70 mb-6">Get your fashion items delivered to your doorstep quickly and safely.</p>
             </div>
-            <div class="text-center">
-                <div class="text-4xl mb-4">💎</div>
+            <div class="text-center bg-white border-2 rounded-xl">
+                <div class="text-4xl mb-4 mt-4">💎</div>
                 <h3 class="text-xl font-semibold mb-2">Quality Products</h3>
                 <p class="text-base-content opacity-70">We offer only the highest quality clothing and accessories.</p>
             </div>
-            <div class="text-center">
-                <div class="text-4xl mb-4">🛡️</div>
+            <div class="text-center bg-white mr-4 border-2 rounded-xl">
+                <div class="text-4xl mb-4 mt-4">🛡️</div>
                 <h3 class="text-xl font-semibold mb-2">Secure Shopping</h3>
                 <p class="text-base-content opacity-70">Your security is our priority with safe and secure payment options.</p>
             </div>
